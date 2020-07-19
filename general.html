@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mainpage.css" >
+    <link rel="stylesheet" href="css/general.css" >
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <title>Titan Analytics</title>
+    <script src="https://kit.fontawesome.com/35e5480a9e.js" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+  <nav  style="margin:0px;" class="navbar navbar-inverse navbar-static-top example6">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar6">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand text-hide" href="index.html">Titan Analytics</a>
+      </div>
+      <div id="navbar6" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Account</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reports <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Edit Reports</a></li>
+              <li><a href="#">Upload Data</a></li>
+              <li><a href="#">Manage Data</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Report Help</li>
+              <li><a href="#">Instruction Guide</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class ="container-fluid mainbackground">
+
+    <div class="row" id="actionstitle">
+      <div class="col-md-3 col-md-offset-1" align="left">
+        <h1 class="general title"> Actions <hr class="shortbar"></h1>
+      </div>
+    </div>
+
+    <div class="row" id="actionsbuttons">
+      <div class="col-md-2 col-md-offset-1" align="center">
+        <a href="">
+          <div class="roundbutton">
+              <i class="fas fa-file-upload fa-4x white"></i>
+          </div>
+        </a>
+        <h5 style="margin-top: 3px;font-weight: 600;">Upload Data</h5>
+      </div>
+      <div class="col-md-2" align="center">
+        <a href="">
+          <div class="roundbutton">
+              <i class="fas fa-columns fa-4x white"></i>
+          </div>
+        </a>
+        <h5 style="margin-top: 3px;font-weight: 600;">Browse Reports</h5>
+      </div>
+    </div>
+
+    <datalist id="targetcolumns">
+      <option value="Personnel">
+      <option value="Formation">
+      <option value="Play Type">
+      <option value="Pass/Run">
+      <option value="Air Yards">
+    </datalist>
+    <datalist id="situations">
+      <option value="Down">
+      <option value="Distance">
+      <option value="Field Zone">
+      <option value="Quarter">
+      <option value="Score Diffrence">
+    </datalist>
+    <datalist id="chartoptions">
+      <option value="Bar Chart">
+      <option value="Pie Chart">
+    </datalist>
+    <datalist id="sankeyoptions">
+      <option value="include">
+      <option value="exclude">
+    </datalist>
+
+    <br>
+    <div class="row">
+      <div id="test0" class="col-md-7 reportrequest col-md-offset-1">
+        <label>Break down
+          <input class="reportcustominput" list="targetcolumns" name="targets" />,
+          <input class="reportcustominput" list="targetcolumns" name="targets" />,
+          <input class="reportcustominput" list="targetcolumns" name="targets" /> by
+          <input class="reportcustominput" list="situations" name="situations" />,
+          <input class="reportcustominput" list="situations" name="situations" />,
+          <input class="reportcustominput" list="situations" name="situations" />
+          &nbsp;&nbsp;
+        </label>
+        <div style="float: right;"class="">
+          <button type="button" onclick="multiplyNode(document.querySelector('.reportrequest'), 2, true);" class="btn btn-primary">+</button>
+          <button id="xbutton" type="button" onclick="remove(document.getElementById('xbutton').parentElement.parentElement)" class="btn btn-danger">x</button>
+        </div>
+        <label for="checkbox-toggle-1">Open Settings</label>
+        <input class="" id="checkbox-toggle-1" type="checkbox" onclick="opensetting(this)"/>
+        <div class="toggle-content">
+          <h5 id="t1"></h5>
+          <input type="radio" id="bart1" name="barpie1" value="Bar Chart">
+          <label for="bart1">Bar Chart</label>
+          <input type="radio" id="piet1" name="barpie1" value="Pie Chart">
+          <label for="piet1">Pie Chart</label><br>
+          <h5 id="t2"></h5>
+          <input type="radio" id="bart2" name="barpie2" value="Bar Chart">
+          <label for="bart2">Bar Chart</label>
+          <input type="radio" id="piet2" name="barpie2" value="Pie Chart">
+          <label for="piet2">Pie Chart</label><br>
+          <h5 id="t3"></h5>
+          <input type="radio" id="bart3" name="barpie3" value="Bar Chart">
+          <label for="bart3">Bar Chart</label>
+          <input type="radio" id="piet3" name="barpie3" value="Pie Chart">
+          <label for="piet3">Pie Chart</label><br>
+          <h5> Relationship Charts </h5>
+          <input id="sankey12" class="reportcheckbox" type="checkbox" name="sankeys"/>
+          <label id="sankey12text"></label>
+          <input id="sankey23" class="reportcheckbox" type="checkbox" name="sankeys"/>
+          <label id="sankey23text"></label>
+        </div>
+      </div>
+      <div class=" col-md-2 col-md-offset-5" align="center">
+          <input class="roundbutton submitcustom" value="Create Report" type="submit" list="" name="submitcustom" onclick="grabscrequestsingle('test0')" />
+      </div>
+    </div>
+  </div>
+<!-- javascript -->
+    <script src="js/cstmzation.js" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<html><head>
+<title>Titan Football analytics</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Raleway:400,700" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/default.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/index.css" >
+  <link rel="stylesheet" href="css/general.css" >
+  <link rel="stylesheet" href="css/loadingbar.css" >
+  <link rel="stylesheet" href="css/header.css" >
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <script src="./js/graphingPackage.js"></script>
+  <script src="./js/sortingPackage.js"></script>
+  <script src="./js/navBar.js"></script>
+
+  <style>
+
+  line.dashed {
+    stroke: #aaa;
+    stroke-width: 1px;
+    stroke-dasharray: 3;
+  }
+  text.axis {
+    text-anchor: end;
+    font-variant: all-small-caps;
+  }
+  .bar-graph-text{
+      text-anchor: end;
+  }
+  .bar-graph-text2{
+      text-anchor: middle;
+  }
+  .bar-graph-title{
+      text-anchor: middle;
+  }
+
+
+  </style>
+</head>
+
+<body>
+    <div class = "container-fluid mainbackground", id = "backgroundDiv">
+    </div>
+    <div class='nav' style='position:fixed;width:100%'>
+      <ul>
+        <li><a href='#' id = "graph1">Graph 1</a>
+            <ul>
+              <li><a href='#' id = "baroption1">Bar Graph</a></li>
+              <li><a href='#' id = "pieoption1">Pie Chart</a></li>
+              <li><a href='#' id = "noneoption1">None</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href='#'><input type="checkbox" name="sankey1" value="sankey1" id="sankey1" checked="true">
+            <label for="sankey1">Sankey 1</label></a>
+        </li>
+        <li><a href='#' id = "graph2">Graph 2</a>
+            <ul>
+                <li><a href='#' id = "baroption2">Bar Graph</a></li>
+                <li><a href='#' id = "pieoption2">Pie Chart</a></li>
+                <li><a href='#' id = "noneoption2">None</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href='#'><input type="checkbox" name="sankey2" value="sankey2" id="sankey2" checked="true">
+            <label for="sankey2">Sankey 2</label></a>
+        </li>
+        <li><a href='#' id = "graph3">Graph 3</a>
+            <ul>
+                <li><a href='#' id = "baroption3">Bar Graph</a></li>
+                <li><a href='#' id = "pieoption3">Pie Chart</a></li>
+                <li><a href='#' id = "noneoption3">None</a></li>
+            </ul>
+        </li>
+        <li><a href='#' id="submit">Submit</a></li>
+        <li><a href='#' id = "sort">Sort</a>
+            <ul>
+                <li><a href='#' id = "sortoption1">Down</a></li>
+                <li><a href='#' id = "sortoption2">Dist</a></li>
+                <li><a href='#' id = "sortoption3">Field Zone</a></li>
+                <li><a href='#' id = "sortoption4">None</a></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+    <div class = "container-fluid", id = "mainDiv">
+    </div>
+  <script>
+        const fixedHeight = 500
+        const fixedWidth = 1200
+        const margin = {top:0,bottom:0,left:0,right:0};
+        const height = fixedHeight - margin.top - margin.bottom;
+        const width = fixedWidth - margin.left - margin.right;
+
+        generateScorecards("scoreCardAutomation.json",["NumPlays"])
+        setupNavClicks();
+
+
+  </script>
+
+</body>
+</html>

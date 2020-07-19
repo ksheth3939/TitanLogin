@@ -1,0 +1,135 @@
+body{
+  overflow-x: hidden;
+}
+.unit{
+  width: 500px;
+  height: 100px;
+  /* border: thick dashed #1c1c1c; */
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:20px
+}
+
+.fBox{
+  height: 80px;
+  width: 150px;
+  /* float:left; */
+  margin: 8px;
+  border: thick solid #1c1c1c;
+  border-width: 6px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:0px;
+  cursor:grab;
+}
+
+.fBox:active{
+  cursor: grabbing;
+}
+
+
+
+.lBox{
+  height: 80px;
+  width: 150px;
+  float:left;
+  margin-left: 0px;
+  border: thick solid #1c1c1c;
+  border-width: 6px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rBox{
+  height: 80px;
+  width: 150px;
+  float:right;
+  margin-right: 20px;
+  border: thick dashed #1c1c1c;
+  border-width: 6px;
+  background-color: white;
+  margin-left: -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow{
+  /* position:absolute;
+  top:50%; */
+  z-index: 1;
+  margin-left:-20px
+
+}
+
+.search{
+  padding:5px;
+  margin-left:5px;
+  margin-top:5px;
+  border: thick solid #1c1c1c;
+  font-size: 17px;
+}
+
+.searchbar{
+  position:fixed;
+  margin-top:-50px;
+  margin-left:8px
+}
+
+.submitButton{
+  float:right;
+  margin-right:30px;
+  position:fixed;
+}
+
+#righthalf button {
+  padding: 8px 10px;
+  margin-top: 3px;
+  margin-left: -48px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+#container{
+  width:100vw;
+  min-height:50vh;
+  display: table;
+  padding-bottom:50px;
+}
+#wrapper{
+  display:table-row;
+}
+#lefthalf{
+  /* background-color: red; */
+  display:table-cell;
+  width: 50vw;
+
+}
+
+#righthalf{
+  /* background-color: blue; */
+  position:fixed;
+  /* display:inline-block; */
+  width: 50vw;
+  min-height: 100vh;
+  margin-left: -30px;
+  display:table-cell;
+  padding-top:50px;
+}
+
+#headerContainer{
+  margin-top:10px;
+  height: 85vh;
+  overflow-y: scroll;
+  border: thick dashed #1c1c1c;
+  border-width: 6px;
+}
